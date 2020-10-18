@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour
     public static PlayerController INSTANCE;
     public Animator anim;
     private Camera _camera;
+    public bool frozen;
 
     private List<GameObject> _artifacts;
     [SerializeField] private Text artifactCount;
@@ -64,7 +65,7 @@ public class PlayerController : MonoBehaviour
         
         Vector3 move = new Vector3(horizontal, 0, vertical);
         
-        if (move != Vector3.zero)
+        if (move != Vector3.zero && !frozen)
         {
             TurnPlayer();
             controller.Move((transform.right * horizontal + transform.forward * vertical) * Time.deltaTime * playerSpeed);
