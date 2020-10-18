@@ -23,4 +23,9 @@ public class BulletController : MonoBehaviour {
             clone.velocity = Spawnpoint.TransformDirection(Vector3.forward*20);
         }
     }
+
+    void OnTriggerEnter()
+    {
+        // the bullet goes through walls smh
+    }
 }

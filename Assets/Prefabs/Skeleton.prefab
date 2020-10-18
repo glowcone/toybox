@@ -91,6 +91,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f9618b480c59944d8a4167e7b2c2aef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  healthBar: {fileID: 0}
   anim: {fileID: 5510390564550251060}
 --- !u!136 &5605061720503990513
 CapsuleCollider:

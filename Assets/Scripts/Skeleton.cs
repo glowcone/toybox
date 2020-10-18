@@ -10,6 +10,7 @@ public class Skeleton : MonoBehaviour
     [SerializeField] private Slider healthBar;
     [SerializeField] private Animator anim;
     Vector3 playerPos;
+    [SerializeField] GameObject canvas;
 
     // Start is called before the first frame update
     void Start()
@@ -40,6 +41,7 @@ public class Skeleton : MonoBehaviour
         if (other.gameObject.CompareTag("Bullet"))
         {
             health--;
+            //canvas.SetActive(true);
             Destroy(other.gameObject);
         }
         if (other.gameObject.CompareTag("Player"))
