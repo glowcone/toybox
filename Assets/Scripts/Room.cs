@@ -13,15 +13,15 @@ public class Room : MonoBehaviour
     private void Start()
     {
         Array.Sort(_walls, (x, y) => Random.Range(-1, 2));
-        var obj = Instantiate(_doorPrefab, transform);
-        obj.GetComponentInChildren<Door>().wall = _walls[0];
-        obj.transform.position = _walls[0].transform.position;
-        obj.transform.rotation = _walls[0].transform.rotation;
-        for (int i=1; i<_numDoors; i++)
+        // var obj = Instantiate(_doorPrefab, transform);
+        // obj.GetComponentInChildren<Door>().wall = _walls[0];
+        // obj.transform.position = _walls[0].transform.position;
+        // obj.transform.rotation = _walls[0].transform.rotation;
+        for (int i=0; i<_numDoors; i++)
         {
             _walls[i].gameObject.SetActive(false);
         }
-        _walls[0].gameObject.SetActive(true);
+        // _walls[0].gameObject.SetActive(true);
 
         var s = transform.Find("Skeleton (1)");
         if (s)
