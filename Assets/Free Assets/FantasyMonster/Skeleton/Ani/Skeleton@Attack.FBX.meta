@@ -261,7 +261,12 @@ ModelImporter:
   - first:
       137: 13700002
     second: Object02
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: defaultsds
+    second: {fileID: 2100000, guid: b1494958bf9856a479bec1767c02878e, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
@@ -281,7 +286,7 @@ ModelImporter:
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
     importConstraints: 0
-    animationCompression: 1
+    animationCompression: 3
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
@@ -342,13 +347,13 @@ ModelImporter:
     globalScale: 0.01
     rootMotionBoneName: 
     hasTranslationDoF: 0
-    hasExtraRoot: 0
+    hasExtraRoot: 1
     skeletonHasParents: 0
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1
-  avatarSetup: 1
+  avatarSetup: 0
   additionalBone: 1
   userData: 
   assetBundleName: 
