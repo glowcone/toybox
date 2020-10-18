@@ -9,6 +9,7 @@ public class Room : MonoBehaviour
     [SerializeField] private GameObject _doorPrefab;
     [SerializeField] private int _numDoors;
     public GameObject _spawnPoint;
+    private Skeleton skeleton;
     private void Start()
     {
         Array.Sort(_walls, (x, y) => Random.Range(-1, 2));
@@ -18,6 +19,12 @@ public class Room : MonoBehaviour
             // obj.transform.position = _walls[i].transform.position;
             // obj.transform.rotation = _walls[i].transform.rotation;
             _walls[i].gameObject.SetActive(false);
+        }
+
+        var s = transform.Find("Skeleton (1)");
+        if (s)
+        {
+            skeleton = s.gameObject.GetComponent<Skeleton>();
         }
     }
 
@@ -35,6 +42,20 @@ public class Room : MonoBehaviour
             CubeManager.INSTANCE.currRoom = this;
             var playerTransform = PlayerController.INSTANCE.transform;
             playerTransform.SetParent(this.transform);
+            if (skeleton)
+            {
+                skeleton.GetAgro();
+            }
+        }
+    }
+
+    private void OnTriggerExit(Collider other) {
+        if (other.CompareTag("Player"))
+        {
+            if (skeleton)
+            {
+                skeleton.StopAgro();
+            }
         }
     }
 }

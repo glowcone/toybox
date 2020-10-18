@@ -337,7 +337,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 152962904}
-  m_LocalRotation: {x: 0.13188304, y: 0.12504175, z: -0.0167726, w: 0.983204}
+  m_LocalRotation: {x: 0.13188304, y: 0.1250417, z: -0.016772594, w: 0.983204}
   m_LocalPosition: {x: 0.25150806, y: 2.03, z: -2.2571778}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -363,6 +363,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthBar: {fileID: 968499372}
+  anim: {fileID: 0}
 --- !u!4 &435639814 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7870110645429502661, guid: 110681d22d2045f4182319b30a02f539,
@@ -608,7 +609,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 707135428}
-  m_LocalRotation: {x: -0.13188304, y: -0.12504172, z: 0.016772576, w: -0.983204}
+  m_LocalRotation: {x: -0.13188304, y: -0.1250417, z: 0.016772572, w: -0.983204}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -910,7 +911,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 999483572}
-  m_LocalRotation: {x: -0.13437253, y: -0.12499885, z: 0.017089212, w: -0.9828669}
+  m_LocalRotation: {x: -0.13437252, y: -0.12499884, z: 0.017089209, w: -0.9828669}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1177,6 +1178,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.16259561
       objectReference: {fileID: 0}
+    - target: {fileID: 8813348744437513505, guid: 110681d22d2045f4182319b30a02f539,
+        type: 3}
+      propertyPath: healthBar
+      value: 
+      objectReference: {fileID: 968499372}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 110681d22d2045f4182319b30a02f539, type: 3}
 --- !u!1 &1274527914
@@ -1245,7 +1251,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1274527914}
-  m_LocalRotation: {x: -0.15313374, y: -0.124649346, z: 0.019475084, w: -0.98011905}
+  m_LocalRotation: {x: -0.15313374, y: -0.124649376, z: 0.01947509, w: -0.98011905}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1581,6 +1587,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthBar: {fileID: 1784830269}
+  anim: {fileID: 0}
+  canvas: {fileID: 0}
 --- !u!1 &1568807013
 GameObject:
   m_ObjectHideFlags: 3
