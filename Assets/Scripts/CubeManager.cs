@@ -40,7 +40,7 @@ public class CubeManager : MonoBehaviour
                 for (var k = 0; k < rows; k++)
                 {
                     var rand = Random.Range(0, roomPrefabs.Length);
-                    var space = (spacing * rows - 1) / 2;
+                    var space = (spacing * rows - spacing) / 2;
                     var pos = transform.position + new Vector3(-space, space + spacing/2, -space);
                     _rooms[i, j, k] = Instantiate(roomPrefabs[rand], pos + new Vector3(spacing * j, 0, spacing * k), Quaternion.identity);
                     _rooms[i, j, k].transform.RotateAround(transform.position, ROTATION_AXIS[i], ROTATION_ANGLES[i]);
@@ -65,6 +65,8 @@ public class CubeManager : MonoBehaviour
 
     public void ShiftCubes(int x, int y)
     {
+        cameraAnimator.SetTrigger("CubeMode");
+        PlayerController.INSTANCE.frozen = true;
         var all = spacing * rows * 2;
         var hit = Physics.OverlapBox(currRoom.transform.position,
             new Vector3(Math.Abs(y) * all, all, Math.Abs(x) * all), currRoom.transform.rotation);
@@ -73,7 +75,6 @@ public class CubeManager : MonoBehaviour
             if (box.GetComponent<Room>())
             {
                 StartCoroutine(RotateOverTime(box.gameObject, transform.position, currRoom.transform.right * x + currRoom.transform.forward * y, 90, animTotalSecs));
-                cameraAnimator.SetTrigger("CubeMode");
             }
         }
     }
@@ -85,9 +86,10 @@ public class CubeManager : MonoBehaviour
         {
             obj.transform.RotateAround(pos, axis, angle/(secs/animFrameSecs));
             currAngle += angle/(secs/animFrameSecs);
-            yield return new WaitForSeconds(animFrameSecs);
+            yield return null;
         }
+        obj.transform.RotateAround(pos, axis, angle-currAngle);
         cameraAnimator.SetTrigger("PlayerMode");
-        currRoom.SpawnPlayer();
+        PlayerController.INSTANCE.frozen = false;
     }
 }
