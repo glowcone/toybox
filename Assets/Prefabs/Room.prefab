@@ -332,6 +332,9 @@ MonoBehaviour:
   - {fileID: 8851670216119820186}
   - {fileID: 3351520645211268921}
   - {fileID: 1303239971723616616}
+  _doorPrefab: {fileID: 2117029413934081392, guid: a23205cd3971f8e41b9fa330f45ab435,
+    type: 3}
+  _numDoors: 0
   player: {fileID: 919132149155446097, guid: 023d340270e41174caf6ed0816401e15, type: 3}
   MAXENEMIES: 3
   enemyPrefabs:

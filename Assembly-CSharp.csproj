@@ -58,10 +58,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Free Assets\3DTOYS\rotatecamera.cs" />
+     <Compile Include="Assets\Scripts\BulletController.cs" />
+     <Compile Include="Assets\Scripts\CameraController.cs" />
      <Compile Include="Assets\Scripts\CubeManager.cs" />
      <Compile Include="Assets\Scripts\DirectionalButton.cs" />
      <Compile Include="Assets\Scripts\InputManager.cs" />
+     <Compile Include="Assets\Scripts\PlayerController.cs" />
      <Compile Include="Assets\Scripts\Room.cs" />
+     <None Include="Assets\Shaders\CustomLighting.hlsl" />
+     <None Include="Assets\Free Assets\3DTOYS\readme.txt" />
  <Reference Include="Unity.RenderPipeline.Universal.ShaderLibrary">
  <HintPath>D:/unity/Cube Game Prototype/Library/ScriptAssemblies/Unity.RenderPipeline.Universal.ShaderLibrary.dll</HintPath>
  </Reference>

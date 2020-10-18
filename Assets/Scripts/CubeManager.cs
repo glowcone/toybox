@@ -1,6 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class CubeManager : MonoBehaviour
 {
@@ -8,39 +10,83 @@ public class CubeManager : MonoBehaviour
     [SerializeField] private float spacing;
     [SerializeField] private Room[] roomPrefabs;
     [SerializeField] private float[] roomProbability;
+    [SerializeField] private float animFrameSecs, animTotalSecs;
 
     public static CubeManager INSTANCE;
 
-    private Room[,] _rooms;
+    public Room currRoom;
+
+    private Room[,,] _rooms;
+    private Vector3[] ROTATION_AXIS = new[] {Vector3.forward, Vector3.forward, Vector3.forward, Vector3.forward, Vector3.right, Vector3.right};
+    private int[] ROTATION_ANGLES = new[] {0, 90, 180, -90, 90, -90};
+    private const int FACES = 6;
     void Start()
     {
         INSTANCE = this;
-        _rooms = new Room[rows, rows];
+        _rooms = new Room[FACES, rows, rows];
         var newpos = transform.position + new Vector3(1, -1, 1) * spacing * rows;
-        for (var i = 0; i < rows; i++)
+        for (var i = 0; i < FACES; i++)
         {
             for (var j = 0; j < rows; j++)
             {
-                // wow this is terrible
-                var rand = Random.Range(0, roomPrefabs.Length);
-                _rooms[i, j] = Instantiate(roomPrefabs[rand], transform.position + Vector3.forward * spacing * i + Vector3.right * spacing * j, Quaternion.identity);
-                rand = Random.Range(0, roomPrefabs.Length);
-                Instantiate(roomPrefabs[rand],transform.position + Vector3.down * spacing * i + Vector3.right * spacing * j, Quaternion.Euler(Vector3.forward * -90 + Vector3.up * 90));
-                rand = Random.Range(0, roomPrefabs.Length);
-                Instantiate(roomPrefabs[rand],transform.position + Vector3.down * spacing * i + Vector3.forward * spacing * j, Quaternion.Euler(Vector3.right * 90 + Vector3.up * -90));
-                rand = Random.Range(0, roomPrefabs.Length);
-                Instantiate(roomPrefabs[rand], newpos + Vector3.back * spacing * (i+1) + Vector3.left * spacing * j, Quaternion.Euler(Vector3.forward * 180));
-                rand = Random.Range(0, roomPrefabs.Length);
-                Instantiate(roomPrefabs[rand],newpos + Vector3.up * spacing * (i+1) + Vector3.back * spacing * j, Quaternion.Euler(new Vector3(90, 90, 0)));
-                rand = Random.Range(0, roomPrefabs.Length);
-                Instantiate(roomPrefabs[rand], newpos + Vector3.up * spacing * (i + 1) + Vector3.left * spacing * j,
-                    Quaternion.Euler(new Vector3(0, -90, -90)));
+                for (var k = 0; k < rows; k++)
+                {
+                    var rand = Random.Range(0, roomPrefabs.Length);
+                    var space = (spacing * rows - 1) / 2;
+                    var pos = transform.position + new Vector3(-space, space + spacing/2, -space);
+                    _rooms[i, j, k] = Instantiate(roomPrefabs[rand], pos + new Vector3(spacing * j, 0, spacing * k), Quaternion.identity);
+                    _rooms[i, j, k].transform.RotateAround(transform.position, ROTATION_AXIS[i], ROTATION_ANGLES[i]);
+                }
             }
         }
-        
+
+        currRoom = _rooms[0, 0, 0];
     }
 
-    public void ShiftCubes(Vector3 position, Vector2 direction)
+    private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            ShiftCubes(0, 1);
+        }
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            ShiftCubes(0, -1);
+        }
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            ShiftCubes(1, 0);
+        }
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            ShiftCubes(-1, 0);
+        }
+    }
+
+    public void ShiftCubes(int x, int y)
+    {
+        var all = spacing * rows * 2;
+        var hit = Physics.OverlapBox(currRoom.transform.position,
+            new Vector3(Math.Abs(y) * all, all, Math.Abs(x) * all), currRoom.transform.rotation);
+        foreach (var box in hit)
+        {
+            if (box.GetComponent<Room>())
+            {
+                StartCoroutine(RotateOverTime(box.gameObject, transform.position, currRoom.transform.right * x + currRoom.transform.forward * y, 90, animTotalSecs));
+                
+                // box.gameObject.SetActive(false);
+            }
+        }
+    }
+
+    IEnumerator RotateOverTime(GameObject obj, Vector3 pos, Vector3 axis, float angle, float secs)
+    {
+        float currAngle = 0;
+        while (Mathf.Abs(currAngle) < Mathf.Abs(angle))
+        {
+            obj.transform.RotateAround(pos, axis, angle/(secs/animFrameSecs));
+            currAngle += angle/(secs/animFrameSecs);
+            yield return new WaitForSeconds(animFrameSecs);
+        }
     }
 }
