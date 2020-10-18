@@ -17,10 +17,10 @@ public class BulletController : MonoBehaviour {
     void Update () {
         if(Input.GetButtonDown("Fire1")){
             Rigidbody clone;
+            OnFire?.Invoke();
             clone = (Rigidbody)Instantiate(projectile, Spawnpoint.position, projectile.rotation);
 
             clone.velocity = Spawnpoint.TransformDirection(Vector3.forward*20);
-            OnFire?.Invoke();
         }
     }
 }

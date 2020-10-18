@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using Cinemachine;
 using UnityEngine;
@@ -14,8 +15,14 @@ public class PlayerController : MonoBehaviour
     // private float jumpHeight = 1.0f;
     // private float gravityValue = -9.81f;
 
+    public static PlayerController INSTANCE;
     public Animator anim;
     private Camera _camera;
+
+    private void Awake()
+    {
+        INSTANCE = this;
+    }
 
     private void Start()
     {
@@ -27,7 +34,6 @@ public class PlayerController : MonoBehaviour
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
-        transform.SetParent(CubeManager.INSTANCE.currRoom.transform);
     }
 
     private void TurnPlayer()
