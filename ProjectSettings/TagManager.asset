@@ -9,6 +9,8 @@ TagManager:
   - SkeletonSword
   - GroovyBot
   - PlayerGun
+  - Enemy
+  - Floor
   layers:
   - Default
   - TransparentFX
