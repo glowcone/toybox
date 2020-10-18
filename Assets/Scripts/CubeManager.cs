@@ -11,30 +11,28 @@ public class CubeManager : MonoBehaviour
 
     public static CubeManager INSTANCE;
 
-    private Room[,] _rooms;
+    private Room[,,] _rooms;
+    private Vector3[] ROTATION_AXIS = new[] {Vector3.forward, Vector3.forward, Vector3.forward, Vector3.forward, Vector3.right, Vector3.right};
+    private int[] ROTATION_ANGLES = new[] {0, 90, 180, -90, 90, -90};
+    private const int FACES = 6;
     void Start()
     {
         INSTANCE = this;
-        _rooms = new Room[rows, rows];
+        _rooms = new Room[FACES, rows, rows];
         var newpos = transform.position + new Vector3(1, -1, 1) * spacing * rows;
-        for (var i = 0; i < rows; i++)
+        for (var i = 0; i < FACES; i++)
         {
             for (var j = 0; j < rows; j++)
             {
-                // wow this is terrible
-                var rand = Random.Range(0, roomPrefabs.Length);
-                _rooms[i, j] = Instantiate(roomPrefabs[rand], transform.position + Vector3.forward * spacing * i + Vector3.right * spacing * j, Quaternion.identity);
-                rand = Random.Range(0, roomPrefabs.Length);
-                Instantiate(roomPrefabs[rand],transform.position + Vector3.down * spacing * i + Vector3.right * spacing * j, Quaternion.Euler(Vector3.forward * -90 + Vector3.up * 90));
-                rand = Random.Range(0, roomPrefabs.Length);
-                Instantiate(roomPrefabs[rand],transform.position + Vector3.down * spacing * i + Vector3.forward * spacing * j, Quaternion.Euler(Vector3.right * 90 + Vector3.up * -90));
-                rand = Random.Range(0, roomPrefabs.Length);
-                Instantiate(roomPrefabs[rand], newpos + Vector3.back * spacing * (i+1) + Vector3.left * spacing * j, Quaternion.Euler(Vector3.forward * 180));
-                rand = Random.Range(0, roomPrefabs.Length);
-                Instantiate(roomPrefabs[rand],newpos + Vector3.up * spacing * (i+1) + Vector3.back * spacing * j, Quaternion.Euler(new Vector3(90, 90, 0)));
-                rand = Random.Range(0, roomPrefabs.Length);
-                Instantiate(roomPrefabs[rand], newpos + Vector3.up * spacing * (i + 1) + Vector3.left * spacing * j,
-                    Quaternion.Euler(new Vector3(0, -90, -90)));
+                for (var k = 0; k < rows; k++)
+                {
+                    var rand = Random.Range(0, roomPrefabs.Length);
+                    var space = (spacing * rows - 1) / 2;
+                    var pos = transform.position + new Vector3(-space, space + spacing/2, -space);
+                    _rooms[i, j, k] = Instantiate(roomPrefabs[rand], pos + new Vector3(spacing * j, 0, spacing * k), Quaternion.identity);
+                    _rooms[i, j, k].transform
+                        .RotateAround(Vector3.zero, ROTATION_AXIS[i], ROTATION_ANGLES[i]);
+                }
             }
         }
         
