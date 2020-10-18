@@ -11,6 +11,8 @@ public class CubeManager : MonoBehaviour
 
     public static CubeManager INSTANCE;
 
+    public Room currRoom;
+
     private Room[,,] _rooms;
     private Vector3[] ROTATION_AXIS = new[] {Vector3.forward, Vector3.forward, Vector3.forward, Vector3.forward, Vector3.right, Vector3.right};
     private int[] ROTATION_ANGLES = new[] {0, 90, 180, -90, 90, -90};
@@ -30,15 +32,15 @@ public class CubeManager : MonoBehaviour
                     var space = (spacing * rows - 1) / 2;
                     var pos = transform.position + new Vector3(-space, space + spacing/2, -space);
                     _rooms[i, j, k] = Instantiate(roomPrefabs[rand], pos + new Vector3(spacing * j, 0, spacing * k), Quaternion.identity);
-                    _rooms[i, j, k].transform
-                        .RotateAround(Vector3.zero, ROTATION_AXIS[i], ROTATION_ANGLES[i]);
+                    _rooms[i, j, k].transform.RotateAround(transform.position, ROTATION_AXIS[i], ROTATION_ANGLES[i]);
                 }
             }
         }
         
     }
 
-    public void ShiftCubes(Vector3 position, Vector2 direction)
+    public void ShiftCubes(Vector2 direction)
     {
+        
     }
 }

@@ -150,12 +150,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15600b90ab9ac4b4fbca0c24c6a371e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rows: 3
+  rows: 4
   spacing: 1
   roomPrefabs:
   - {fileID: 5468702745776541071, guid: 1c544c7060f9c7240b31162ce5979b7a, type: 3}
   - {fileID: 8923924852504885580, guid: 7621f6e9ee0f86149a9340be93718b1f, type: 3}
   roomProbability: []
+  currRoom: {fileID: 0}
 --- !u!4 &630049869
 Transform:
   m_ObjectHideFlags: 0
@@ -229,7 +230,6 @@ GameObject:
   - component: {fileID: 1687258585}
   - component: {fileID: 1687258584}
   - component: {fileID: 1687258582}
-  - component: {fileID: 1687258583}
   - component: {fileID: 1687258586}
   m_Layer: 0
   m_Name: Main Camera
@@ -246,18 +246,6 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1687258581}
   m_Enabled: 1
---- !u!114 &1687258583
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1687258581}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be76e5f14cfee674cb30b491fb72b09b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!20 &1687258584
 Camera:
   m_ObjectHideFlags: 0
