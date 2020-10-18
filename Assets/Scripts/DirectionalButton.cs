@@ -15,6 +15,6 @@ public class DirectionalButton : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        CubeManager.INSTANCE.ShiftCubes(0, 1);
+        CubeManager.INSTANCE.ShiftCubes((int) _direction.x, (int) _direction.y);
     }
 }
