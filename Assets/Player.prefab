@@ -119,5 +119,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5adc85f5831dc46c2950611c2b173c4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 0}
+  projectile: {fileID: 769419364909171491, guid: a3f7e152e284e442d8668f04551eb179,
+    type: 3}
   Spawnpoint: {fileID: 0}
