@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Cinemachine;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -21,8 +22,10 @@ public class CubeManager : MonoBehaviour
     private Vector3[] ROTATION_AXIS = new[] {Vector3.forward, Vector3.forward, Vector3.forward, Vector3.forward, Vector3.right, Vector3.right};
     private int[] ROTATION_ANGLES = new[] {0, 90, 180, -90, 90, -90};
     private const int FACES = 6;
+    private AudioSource _audio;
 
     [SerializeField] private GameObject[] artifactPrefabs;
+    [SerializeField] private AudioClip spinStart, spinEnd;
 
     private void Awake()
     {
@@ -31,6 +34,7 @@ public class CubeManager : MonoBehaviour
 
     void Start()
     {
+        _audio = GetComponent<AudioSource>();
         _rooms = new Room[FACES, rows, rows];
         var newpos = transform.position + new Vector3(1, -1, 1) * spacing * rows;
         for (var i = 0; i < FACES; i++)
@@ -66,6 +70,7 @@ public class CubeManager : MonoBehaviour
 
     public void ShiftCubes(int x, int y)
     {
+        _audio.PlayOneShot(spinStart);
         cameraAnimator.SetTrigger("CubeMode");
         PlayerController.INSTANCE.frozen = true;
         var all = spacing * rows * 2;
@@ -91,6 +96,8 @@ public class CubeManager : MonoBehaviour
         }
         obj.transform.RotateAround(pos, axis, angle-currAngle);
         cameraAnimator.SetTrigger("PlayerMode");
+        if (PlayerController.INSTANCE.frozen)
+            _audio.PlayOneShot(spinEnd);
         PlayerController.INSTANCE.frozen = false;
     }
 }
