@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Cinemachine;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -19,6 +20,9 @@ public class PlayerController : MonoBehaviour
     public Animator anim;
     private Camera _camera;
 
+    private List<GameObject> _artifacts;
+    [SerializeField] private Text artifactCount;
+
     private void Awake()
     {
         INSTANCE = this;
@@ -34,6 +38,8 @@ public class PlayerController : MonoBehaviour
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+
+        _artifacts = new List<GameObject>();
     }
 
     private void TurnPlayer()
@@ -74,5 +80,15 @@ public class PlayerController : MonoBehaviour
 
         anim.SetFloat("Vertical", vertical);
         anim.SetFloat("Horizontal", horizontal);
+    }
+
+    private void OnTriggerEnter(Collider other) {
+        if (other.tag == "artifact")
+        {
+            Debug.Log("artifact");
+            _artifacts.Add(other.gameObject);
+            artifactCount.text = "ARTIFACTS: " + _artifacts.Count + "/4";
+            Destroy(other.gameObject);
+        }
     }
 }
