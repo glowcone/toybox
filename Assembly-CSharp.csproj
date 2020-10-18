@@ -59,6 +59,8 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\CubeManager.cs" />
+     <Compile Include="Assets\Scripts\DirectionalButton.cs" />
+     <Compile Include="Assets\Scripts\InputManager.cs" />
      <Compile Include="Assets\Scripts\Room.cs" />
  <Reference Include="Unity.RenderPipeline.Universal.ShaderLibrary">
  <HintPath>D:/unity/Cube Game Prototype/Library/ScriptAssemblies/Unity.RenderPipeline.Universal.ShaderLibrary.dll</HintPath>
