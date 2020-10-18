@@ -63,9 +63,13 @@
      <Compile Include="Assets\Scripts\CameraController.cs" />
      <Compile Include="Assets\Scripts\CubeManager.cs" />
      <Compile Include="Assets\Scripts\DirectionalButton.cs" />
+     <Compile Include="Assets\Scripts\EnemyHealthBar.cs" />
+     <Compile Include="Assets\Scripts\EnemyManager.cs" />
      <Compile Include="Assets\Scripts\InputManager.cs" />
      <Compile Include="Assets\Scripts\PlayerController.cs" />
+     <Compile Include="Assets\Scripts\PlayerHealth.cs" />
      <Compile Include="Assets\Scripts\Room.cs" />
+     <Compile Include="Assets\Scripts\Skeleton.cs" />
      <None Include="Assets\Shaders\CustomLighting.hlsl" />
      <None Include="Assets\Free Assets\3DTOYS\readme.txt" />
  <Reference Include="Unity.RenderPipeline.Universal.ShaderLibrary">

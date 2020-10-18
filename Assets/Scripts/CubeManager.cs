@@ -11,6 +11,7 @@ public class CubeManager : MonoBehaviour
     [SerializeField] private Room[] roomPrefabs;
     [SerializeField] private float[] roomProbability;
     [SerializeField] private float animFrameSecs, animTotalSecs;
+    [SerializeField] private Animator cameraAnimator;
 
     public static CubeManager INSTANCE;
 
@@ -60,10 +61,6 @@ public class CubeManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            ShiftCubes(0, 1);
-        }
     }
 
     public void ShiftCubes(int x, int y)
@@ -76,8 +73,7 @@ public class CubeManager : MonoBehaviour
             if (box.GetComponent<Room>())
             {
                 StartCoroutine(RotateOverTime(box.gameObject, transform.position, currRoom.transform.right * x + currRoom.transform.forward * y, 90, animTotalSecs));
-                
-                // box.gameObject.SetActive(false);
+                cameraAnimator.SetTrigger("CubeMode");
             }
         }
     }
@@ -91,5 +87,7 @@ public class CubeManager : MonoBehaviour
             currAngle += angle/(secs/animFrameSecs);
             yield return new WaitForSeconds(animFrameSecs);
         }
+        cameraAnimator.SetTrigger("PlayerMode");
+        currRoom.SpawnPlayer();
     }
 }

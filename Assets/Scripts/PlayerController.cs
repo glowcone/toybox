@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     // https://docs.unity3d.com/ScriptReference/CharacterController.Move.html
 
     [SerializeField] private CharacterController controller;
+    [SerializeField] private CinemachineBrain brain;
     private Vector3 playerVelocity;
     // private bool groundedPlayer;
     private float playerSpeed = 2.0f;
@@ -40,11 +41,12 @@ public class PlayerController : MonoBehaviour
         Cursor.visible = false;
 
         _artifacts = new List<GameObject>();
+        brain.m_WorldUpOverride = this.transform;
     }
 
     private void TurnPlayer()
     {
-        gameObject.transform.eulerAngles = transform.up * _camera.transform.rotation.eulerAngles.y;
+        transform.LookAt(transform.position + Vector3.ProjectOnPlane(_camera.transform.forward, transform.up), transform.up);
     }
 
     void Update()
