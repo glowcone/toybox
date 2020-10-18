@@ -196,7 +196,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -212,6 +212,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 2017310906}
+  - {fileID: 1746456285}
   - {fileID: 783552852}
   - {fileID: 1870080055}
   - {fileID: 236890895}
@@ -400,7 +401,7 @@ RectTransform:
   m_Children:
   - {fileID: 399056975}
   m_Father: {fileID: 7857209}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -449,7 +450,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 236890897}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 798887983}
+        m_MethodName: ToggleCredits
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &236890897
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -753,7 +765,7 @@ RectTransform:
   m_Children:
   - {fileID: 202250017}
   m_Father: {fileID: 7857209}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1043,7 +1055,7 @@ RectTransform:
   - {fileID: 475488662}
   - {fileID: 237830321}
   m_Father: {fileID: 7857209}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1079,6 +1091,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42d1daea77d09e244ae45e43477333d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  credits: {fileID: 1746456284}
 --- !u!4 &798887984
 Transform:
   m_ObjectHideFlags: 0
@@ -1419,6 +1432,139 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1133286008}
   m_CullTransparentMesh: 0
+--- !u!1 &1746456284
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1746456285}
+  - component: {fileID: 1746456287}
+  - component: {fileID: 1746456286}
+  m_Layer: 5
+  m_Name: CreditsText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &1746456285
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1746456284}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7857209}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 598, y: -3}
+  m_SizeDelta: {x: 485.9, y: 804}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1746456286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1746456284}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.8, g: 0.6156863, b: 0.6156863, a: 1}
+  m_RaycastTarget: 1
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 20
+    m_FontStyle: 2
+    m_BestFit: 0
+    m_MinSize: 2
+    m_MaxSize: 49
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 'MEGA NVJam 2020
+
+
+    TOYBOX by:
+
+
+    Steph Ng
+
+    Bethany Lai
+
+    Katherine
+    Yang
+
+    Vinny Palaniappan
+
+
+    Assets:
+
+
+    Lofi Music by Alex McCulloch
+
+    https://opengameart.org/content/low-fi-0z
+
+
+    Monster
+    growl by umnachtung
+
+    https://freesound.org/people/umnachtung/sounds/533165/
+
+
+    Fantasy
+    Monster - Skeleton by Teamjoker
+
+    https://assetstore.unity.com/packages/3d/characters/humanoids/fantasy-monster-skeleton-35635
+
+
+    6
+    x 3D Cute Toy Models by Psionic Games
+
+    https://assetstore.unity.com/packages/3d/characters/6-x-3d-cute-toy-models-105033
+
+
+    Sci-Fi
+    Gun by GRASBOCK
+
+    https://assetstore.unity.com/packages/3d/sci-fi-gun-30826
+
+
+    Health
+    bar by WeeklyHow
+
+    https://weeklyhow.com/how-to-make-a-health-bar-in-unity/
+
+
+    Character
+    Animations from Maximo'
+--- !u!222 &1746456287
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1746456284}
+  m_CullTransparentMesh: 0
 --- !u!1 &1870080054
 GameObject:
   m_ObjectHideFlags: 0
@@ -1451,7 +1597,7 @@ RectTransform:
   m_Children:
   - {fileID: 1133286009}
   m_Father: {fileID: 7857209}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
