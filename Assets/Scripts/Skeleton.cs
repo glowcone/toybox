@@ -12,6 +12,8 @@ public class Skeleton : MonoBehaviour
     Vector3 playerPos;
     [SerializeField] GameObject canvas;
 
+    bool died = false;
+
     private AudioSource growl;
     // private AudioSource die;
 
@@ -61,14 +63,13 @@ public class Skeleton : MonoBehaviour
 
     void CheckDeath()
     {
-        if (health <= 0)
+        if (!died && health <= 0)
         {
-            Debug.Log("die");
+            died = true;
+            //Debug.Log("die");
             // growl.FadeOut(0.1f);
             // die.Play();
-            Destroy(healthBar.gameObject);
-            // gameObject.SetActive(false);
-            Destroy(gameObject);
+            StartCoroutine(DieAnimation());
         }
     }
 
@@ -77,6 +78,7 @@ public class Skeleton : MonoBehaviour
         if (other.gameObject.CompareTag("Bullet"))
         {
             health--;
+            StartCoroutine(DamageAnimation());
             // canvas.SetActive(true);
             //Destroy(other.gameObject);
         }
@@ -108,5 +110,20 @@ public class Skeleton : MonoBehaviour
     {
         growl.FadeOut(0.5f);
         canvas.SetActive(false);
+    }
+
+    IEnumerator DamageAnimation()
+    {
+        anim.SetBool("Damaged", true);
+        yield return new WaitForSeconds(0.3f);
+        anim.SetBool("Damaged", false);
+    }
+
+    IEnumerator DieAnimation()
+    {
+        anim.SetTrigger("Dead");
+        yield return new WaitForSeconds(3.0f);
+        Destroy(healthBar.gameObject);
+        Destroy(gameObject);
     }
 }

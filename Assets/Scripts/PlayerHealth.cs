@@ -11,6 +11,8 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] private Animator anim;
     [SerializeField] private PlayerController pc;
 
+    bool died = false;
+
     GameManager gm;
 
     // Start is called before the first frame update
@@ -30,10 +32,11 @@ public class PlayerHealth : MonoBehaviour
 
     void CheckDeath()
     {
-        if (health <= 0)
+        if (!died && health <= 0)
         {
+            died = true;
             //Debug.Log("game over");
-            anim.SetBool("Player Die", true);
+            anim.SetTrigger("Player Dead");
             pc.controller.enabled = false;
             gm.Lose();
         }
