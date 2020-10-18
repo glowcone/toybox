@@ -83,6 +83,14 @@ public class PlayerController : MonoBehaviour
 
         anim.SetFloat("Vertical", vertical);
         anim.SetFloat("Horizontal", horizontal);
+
+        RaycastHit hit;
+        if (Physics.Linecast(transform.position, transform.position + transform.up * -.5f, out hit))
+        {
+            if (!hit.collider.CompareTag("Floor") && Physics.Linecast(transform.position, transform.position + transform.up * -4f, out hit))
+                (hit.collider.GetComponent<Room>())?.SpawnPlayer();
+        }
+        
     }
 
     private void OnTriggerEnter(Collider other) {

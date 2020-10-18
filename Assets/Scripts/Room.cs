@@ -35,6 +35,7 @@ public class Room : MonoBehaviour
         var playerTransform = PlayerController.INSTANCE.transform;
         playerTransform.SetParent(this.transform);
         playerTransform.position = _spawnPoint.transform.position;
+        playerTransform.localRotation = Quaternion.identity;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -44,6 +45,7 @@ public class Room : MonoBehaviour
             CubeManager.INSTANCE.currRoom = this;
             var playerTransform = PlayerController.INSTANCE.transform;
             playerTransform.SetParent(this.transform);
+            playerTransform.localRotation = Quaternion.identity;
             if (skeleton)
             {
                 skeleton.GetAgro();
