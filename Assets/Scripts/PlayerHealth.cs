@@ -11,11 +11,14 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] private Animator anim;
     [SerializeField] private PlayerController pc;
 
+    GameManager gm;
+
     // Start is called before the first frame update
     void Start()
     {
         health = MAXHEALTH;
         healthBar.maxValue = MAXHEALTH;
+        gm = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     // Update is called once per frame
@@ -29,9 +32,10 @@ public class PlayerHealth : MonoBehaviour
     {
         if (health <= 0)
         {
-            Debug.Log("game over");
+            //Debug.Log("game over");
             anim.SetBool("Player Die", true);
             pc.controller.enabled = false;
+            gm.Lose();
         }
     }
 

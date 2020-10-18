@@ -71,7 +71,7 @@ public class Skeleton : MonoBehaviour
         {
             health--;
             canvas.SetActive(true);
-            Destroy(other.gameObject);
+            //Destroy(other.gameObject);
         }
         if (other.gameObject.CompareTag("Player"))
         {
