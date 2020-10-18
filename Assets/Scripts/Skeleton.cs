@@ -28,8 +28,14 @@ public class Skeleton : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Bullet"))
         {
-            health -= 1;
+            health--;
             other.gameObject.SetActive(false);
         }
+        if (other.gameObject.CompareTag("Player"))
+            Attack();
+    }
+
+    void Attack()
+    {
     }
 }
