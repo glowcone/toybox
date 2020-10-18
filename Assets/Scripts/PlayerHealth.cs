@@ -9,6 +9,7 @@ public class PlayerHealth : MonoBehaviour
     private int health;
     [SerializeField] private Slider healthBar;
     [SerializeField] private Animator anim;
+    [SerializeField] private PlayerController pc;
 
     // Start is called before the first frame update
     void Start()
@@ -27,7 +28,11 @@ public class PlayerHealth : MonoBehaviour
     void CheckDeath()
     {
         if (health <= 0)
+        {
             Debug.Log("game over");
+            anim.SetBool("Player Die", true);
+            pc.controller.enabled = false;
+        }
     }
 
     void OnTriggerEnter(Collider other)

@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
 {
     // https://docs.unity3d.com/ScriptReference/CharacterController.Move.html
 
-    [SerializeField] private CharacterController controller;
+    public CharacterController controller;
     [SerializeField] private CinemachineBrain brain;
     private Vector3 playerVelocity;
     // private bool groundedPlayer;

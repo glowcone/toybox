@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Skeleton : MonoBehaviour
 {
-    private const int MAXHEALTH = 3;
+    private const int MAXHEALTH = 4;
     private int health;
     [SerializeField] private Slider healthBar;
     [SerializeField] private Animator anim;
@@ -17,13 +17,17 @@ public class Skeleton : MonoBehaviour
     {
         health = MAXHEALTH;
         healthBar.maxValue = MAXHEALTH;
+        canvas.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
-        healthBar.value = health;
-        CheckDeath();
+        if (canvas.active)
+        {
+            healthBar.value = health;
+            CheckDeath();
+        }
     }
 
     void CheckDeath()
@@ -41,12 +45,12 @@ public class Skeleton : MonoBehaviour
         if (other.gameObject.CompareTag("Bullet"))
         {
             health--;
-            //canvas.SetActive(true);
+            canvas.SetActive(true);
             Destroy(other.gameObject);
         }
         if (other.gameObject.CompareTag("Player"))
         {
-            playerPos = other.gameObject.transform.position;
+            //playerPos = other.gameObject.transform.position;
             Attack();
         }
     }

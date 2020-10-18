@@ -50,6 +50,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 26621736}
+  brain: {fileID: 0}
   anim: {fileID: 26621737}
   artifactCount: {fileID: 0}
 --- !u!114 &26621735
@@ -79,7 +80,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd022d2b98782264db4a59966cc48071, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  healthBar: {fileID: 0}
   anim: {fileID: 26621737}
+  pc: {fileID: 26621734}
+--- !u!65 &9208794583191484860
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7382507288074442879}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.4992148, y: 3.0256348, z: 1.9564285}
+  m_Center: {x: 0.07929023, y: 1.5488733, z: 0.22191374}
 --- !u!1001 &7688355476556047926
 PrefabInstance:
   m_ObjectHideFlags: 0

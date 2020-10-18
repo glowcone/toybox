@@ -107,7 +107,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -174,7 +174,7 @@ RectTransform:
   m_GameObject: {fileID: 8357188200688795582}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -0.16}
-  m_LocalScale: {x: 0.0011349693, y: 0.0011349693, z: 0.0011349693}
+  m_LocalScale: {x: 0.00044024325, y: 0.00044024325, z: 0.00044024325}
   m_Children:
   - {fileID: 392661399041370191}
   - {fileID: 1650195748856226146}
@@ -183,7 +183,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1005.97626, y: -520.1496}
+  m_AnchoredPosition: {x: -1005.9912, y: -520.5942}
   m_SizeDelta: {x: 236.83777, y: 40.78685}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &3844127707609044242
@@ -254,7 +254,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &5604591998653872641
 RectTransform:
   m_ObjectHideFlags: 0
@@ -530,23 +530,33 @@ PrefabInstance:
     - target: {fileID: 267436211712624074, guid: b2738c37755766248be9985c71301cc0,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 1
+      value: 0.39926
       objectReference: {fileID: 0}
     - target: {fileID: 267436211712624074, guid: b2738c37755766248be9985c71301cc0,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 1
+      value: 0.39926
       objectReference: {fileID: 0}
     - target: {fileID: 267436211712624074, guid: b2738c37755766248be9985c71301cc0,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 1
+      value: 0.39926
       objectReference: {fileID: 0}
     - target: {fileID: 4433033615079835207, guid: b2738c37755766248be9985c71301cc0,
         type: 3}
       propertyPath: healthBar
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 3844127707609044242}
+    - target: {fileID: 4433033615079835207, guid: b2738c37755766248be9985c71301cc0,
+        type: 3}
+      propertyPath: canvas
+      value: 
+      objectReference: {fileID: 8995846609853998829}
+    - target: {fileID: 4433033615079835207, guid: b2738c37755766248be9985c71301cc0,
+        type: 3}
+      propertyPath: anim
+      value: 
+      objectReference: {fileID: 2636732999063504388}
     - target: {fileID: 5144098443118059099, guid: b2738c37755766248be9985c71301cc0,
         type: 3}
       propertyPath: healthBar
@@ -577,5 +587,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: Skeleton (1)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5144098443118059099, guid: b2738c37755766248be9985c71301cc0, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: b2738c37755766248be9985c71301cc0, type: 3}
+--- !u!95 &2636732999063504388 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5510390564550251060, guid: b2738c37755766248be9985c71301cc0,
+    type: 3}
+  m_PrefabInstance: {fileID: 7561360932179645488}
+  m_PrefabAsset: {fileID: 0}
