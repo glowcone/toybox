@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 2138677392}
-  m_IndirectSpecularColor: {r: 0.2850269, g: 0.3713935, b: 0.49601045, a: 1}
+  m_IndirectSpecularColor: {r: 0.28502658, g: 0.37139314, b: 0.49600917, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -309,6 +309,11 @@ MonoBehaviour:
   animFrameSecs: 0.05
   animTotalSecs: 1
   currRoom: {fileID: 0}
+  artifactPrefabs:
+  - {fileID: 3045890773230164286, guid: f976000a431954d23bd765342ba3d0bb, type: 3}
+  - {fileID: 3045890773230164286, guid: b36891343670547829e40ac022daae2f, type: 3}
+  - {fileID: 3045890773230164286, guid: 32769178425ac4b209d5943914e627b0, type: 3}
+  - {fileID: 3045890773230164286, guid: 1dc4bbb878ccd4d7eae33c80e42afb76, type: 3}
 --- !u!4 &630049869
 Transform:
   m_ObjectHideFlags: 0

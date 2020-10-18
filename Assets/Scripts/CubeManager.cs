@@ -21,7 +21,6 @@ public class CubeManager : MonoBehaviour
     private int[] ROTATION_ANGLES = new[] {0, 90, 180, -90, 90, -90};
     private const int FACES = 6;
 
-    private const int NUMARTIFACTS = 4;
     [SerializeField] private GameObject[] artifactPrefabs;
 
     private void Awake()
@@ -52,7 +51,7 @@ public class CubeManager : MonoBehaviour
         currRoom.SpawnPlayer();
 
         // spawn artifacts
-        for (int i = 0; i < NUMARTIFACTS; i++)
+        for (int i = 0; i < artifactPrefabs.Length; i++)
         {
             var room = _rooms[Random.Range(0, FACES), Random.Range(0, rows), Random.Range(0, rows)];
             Instantiate(artifactPrefabs[i], room.transform.position, room.transform.rotation);
