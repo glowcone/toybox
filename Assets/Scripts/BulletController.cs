@@ -31,8 +31,8 @@ public class BulletController : MonoBehaviour {
 
     IEnumerator ShootAnimation()
     {
-        gun.SetActive(true);
         anim.SetBool("Shoot", true);
+        gun.SetActive(true);
         yield return new WaitForSeconds(1.0f);
         anim.SetBool("Shoot", false);
         gun.SetActive(false);

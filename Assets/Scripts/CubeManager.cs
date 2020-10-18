@@ -55,7 +55,8 @@ public class CubeManager : MonoBehaviour
         for (int i = 0; i < artifactPrefabs.Length; i++)
         {
             var room = _rooms[Random.Range(0, FACES), Random.Range(0, rows), Random.Range(0, rows)];
-            Instantiate(artifactPrefabs[i], room.transform.position, room.transform.rotation);
+            var artifact = Instantiate(artifactPrefabs[i], room.transform.position + room.transform.up*0.5f, room.transform.rotation);
+            artifact.transform.SetParent(room.transform);
         }
     }
 
