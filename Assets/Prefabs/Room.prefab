@@ -332,6 +332,10 @@ MonoBehaviour:
   - {fileID: 8851670216119820186}
   - {fileID: 3351520645211268921}
   - {fileID: 1303239971723616616}
+  player: {fileID: 919132149155446097, guid: 023d340270e41174caf6ed0816401e15, type: 3}
+  MAXENEMIES: 3
+  enemyPrefabs:
+  - {fileID: 100078, guid: a5ea117a2b123564a83a2dbd1c9ea4cf, type: 3}
 --- !u!1 &8619311984518765877
 GameObject:
   m_ObjectHideFlags: 0
