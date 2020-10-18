@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour
     {
         if (canRestart)
         {
-            if (Input.GetKeyDown("R"))
+            if (Input.GetKeyDown(KeyCode.R))
                 SceneManager.LoadScene("Menu");
         }
 
