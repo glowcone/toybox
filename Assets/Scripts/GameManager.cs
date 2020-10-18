@@ -25,7 +25,7 @@ public class GameManager : MonoBehaviour
         if (canRestart)
         {
             if (Input.GetKeyDown("R"))
-                SceneManager.LoadScene("Level");
+                SceneManager.LoadScene("Menu");
         }
 
         if (numArtifacts >= GOALARTIFACTS)
