@@ -1,20 +1,25 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
-    int health = 10;
+    private const int MAXHEALTH = 10;
+    private int health;
+    [SerializeField] private Slider healthBar;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        health = MAXHEALTH;
+        healthBar.maxValue = MAXHEALTH;
     }
 
     // Update is called once per frame
     void Update()
     {
+        healthBar.value = health;
         CheckDeath();
     }
 
@@ -24,7 +29,7 @@ public class PlayerHealth : MonoBehaviour
             Debug.Log("game over");
     }
 
-    void OnTriggerEnter(Collision other)
+    void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("SkeletonSword"))
             health--;
