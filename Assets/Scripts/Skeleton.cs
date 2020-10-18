@@ -12,7 +12,8 @@ public class Skeleton : MonoBehaviour
     Vector3 playerPos;
     [SerializeField] GameObject canvas;
 
-    private AudioSource audio;
+    private AudioSource growl;
+    // private AudioSource die;
 
     // Start is called before the first frame update
     void Start()
@@ -23,9 +24,12 @@ public class Skeleton : MonoBehaviour
         canvas.SetActive(false);
 
         // audio
-        audio = GetComponent<AudioSource>();
-
-        
+        // var audio = GetComponents<AudioSource>();
+        // Debug.Log(audio[0], audio[1]);
+        growl = GetComponent<AudioSource>();
+        // die = GetComponent<AudioSource>();
+        // growl = audio[0];
+        // die = audio[1];
     }
 
     // Update is called once per frame
@@ -59,6 +63,9 @@ public class Skeleton : MonoBehaviour
     {
         if (health <= 0)
         {
+            Debug.Log("die");
+            // growl.FadeOut(0.1f);
+            // die.Play();
             Destroy(healthBar.gameObject);
             // gameObject.SetActive(false);
             Destroy(gameObject);
@@ -70,7 +77,7 @@ public class Skeleton : MonoBehaviour
         if (other.gameObject.CompareTag("Bullet"))
         {
             health--;
-            canvas.SetActive(true);
+            // canvas.SetActive(true);
             //Destroy(other.gameObject);
         }
         if (other.gameObject.CompareTag("Player"))
@@ -94,11 +101,13 @@ public class Skeleton : MonoBehaviour
 
     public void GetAgro()
     {
-        audio.Play();
+        growl.Play();
+        canvas.SetActive(true);
     }
 
     public void StopAgro()
     {
-        audio.FadeOut(0.5f);
+        growl.FadeOut(0.5f);
+        canvas.SetActive(false);
     }
 }
