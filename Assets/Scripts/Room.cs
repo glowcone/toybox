@@ -33,6 +33,8 @@ public class Room : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             CubeManager.INSTANCE.currRoom = this;
+            var playerTransform = PlayerController.INSTANCE.transform;
+            playerTransform.SetParent(this.transform);
         }
     }
 }

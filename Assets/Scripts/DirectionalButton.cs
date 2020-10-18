@@ -10,6 +10,7 @@ public class DirectionalButton : MonoBehaviour
     private void Start()
     {
         _direction = DIRECTIONS[Random.Range(0, DIRECTIONS.Length)];
+        transform.localRotation = Quaternion.Euler(new Vector3(_direction.x, 0, _direction.y));
     }
 
     private void OnTriggerEnter(Collider other)
