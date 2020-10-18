@@ -1,10 +1,12 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class BulletController : MonoBehaviour {
     public Rigidbody projectile;
     public Transform Spawnpoint;
+    public static event Action OnFire;
 
     // Use this for initialization
     void Start () {
@@ -18,6 +20,7 @@ public class BulletController : MonoBehaviour {
             clone = (Rigidbody)Instantiate(projectile, Spawnpoint.position, projectile.rotation);
 
             clone.velocity = Spawnpoint.TransformDirection(Vector3.forward*20);
+            OnFire?.Invoke();
         }
     }
 }
