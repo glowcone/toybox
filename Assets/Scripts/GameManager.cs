@@ -43,4 +43,9 @@ public class GameManager : MonoBehaviour
         winText.SetActive(true);
         canRestart = true;
     }
+
+    public void AddPoint()
+    {
+        numArtifacts++;
+    }
 }

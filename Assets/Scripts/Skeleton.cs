@@ -88,12 +88,12 @@ public class Skeleton : MonoBehaviour
 
     void Attack()
     {
-        //transform.LookAt(playerPos);
         anim.SetBool("Attack", true);
     }
 
     public void GetAgro()
     {
+        //transform.LookAt(playerPos);
         audio.Play();
     }
 
