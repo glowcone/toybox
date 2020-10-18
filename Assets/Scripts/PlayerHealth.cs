@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerHealth : MonoBehaviour
 {
     int health = 10;
+    [SerializeField] private Animator anim;
 
     // Start is called before the first frame update
     void Start()
@@ -24,9 +25,22 @@ public class PlayerHealth : MonoBehaviour
             Debug.Log("game over");
     }
 
-    void OnTriggerEnter(Collision other)
+    void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("SkeletonSword"))
-            health--;
+            TakeDamage();
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("SkeletonSword"))
+            anim.SetBool("Get Hurt", false);
+    }
+
+    void TakeDamage()
+    {
+        Debug.Log("taking damage");
+        health--;
+        anim.SetBool("Get Hurt", true);
     }
 }

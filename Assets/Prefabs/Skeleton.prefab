@@ -1,5 +1,18 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!65 &4866512828508721840
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5889556087147598927}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.013410808, y: 0.021477252, z: 0.1213187}
+  m_Center: {x: -0.000000011213357, y: 0.0008704004, z: 0.048967443}
 --- !u!65 &2308151148705256975
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -43,6 +56,7 @@ GameObject:
   - component: {fileID: 267436211712624074}
   - component: {fileID: 5144098443118059099}
   - component: {fileID: 5605061720503990513}
+  - component: {fileID: 6444128143865889394}
   m_Layer: 0
   m_Name: Skeleton
   m_TagString: Untagged
@@ -77,6 +91,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f9618b480c59944d8a4167e7b2c2aef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anim: {fileID: 5510390564550251060}
 --- !u!136 &5605061720503990513
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -91,6 +106,19 @@ CapsuleCollider:
   m_Height: 0.69122624
   m_Direction: 1
   m_Center: {x: 0, y: 0.35663486, z: 0}
+--- !u!65 &6444128143865889394
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8290431231497408297}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.1467386, y: 0.8474853, z: 0.9195967}
+  m_Center: {x: 0.024953187, y: 0.4026822, z: 0.094536185}
 --- !u!1001 &5889556087147696777
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -98,9 +126,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 267436211712624074}
     m_Modifications:
-    - target: {fileID: 100074, guid: 5a35c5f0a89b9654d897ccd7c8f81bd0, type: 3}
+    - target: {fileID: 100038, guid: 5a35c5f0a89b9654d897ccd7c8f81bd0, type: 3}
       propertyPath: m_TagString
       value: SkeletonSword
+      objectReference: {fileID: 0}
+    - target: {fileID: 100074, guid: 5a35c5f0a89b9654d897ccd7c8f81bd0, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 100078, guid: 5a35c5f0a89b9654d897ccd7c8f81bd0, type: 3}
       propertyPath: m_Name
@@ -177,6 +209,12 @@ GameObject:
 --- !u!4 &5889556087147563079 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400078, guid: 5a35c5f0a89b9654d897ccd7c8f81bd0,
+    type: 3}
+  m_PrefabInstance: {fileID: 5889556087147696777}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5889556087147598927 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100038, guid: 5a35c5f0a89b9654d897ccd7c8f81bd0,
     type: 3}
   m_PrefabInstance: {fileID: 5889556087147696777}
   m_PrefabAsset: {fileID: 0}

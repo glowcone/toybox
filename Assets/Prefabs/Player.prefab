@@ -51,6 +51,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 26621736}
   anim: {fileID: 26621737}
+  artifactCount: {fileID: 0}
 --- !u!114 &26621735
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -66,6 +67,19 @@ MonoBehaviour:
   projectile: {fileID: 769419364909171491, guid: a3f7e152e284e442d8668f04551eb179,
     type: 3}
   Spawnpoint: {fileID: 1663879995624633287}
+--- !u!114 &8813348744437513505
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7382507288074442879}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd022d2b98782264db4a59966cc48071, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anim: {fileID: 26621737}
 --- !u!1001 &7688355476556047926
 PrefabInstance:
   m_ObjectHideFlags: 0
