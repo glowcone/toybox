@@ -15,9 +15,11 @@ public class DirectionalButton : MonoBehaviour
         if (primary)
         {
             _direction = DIRECTIONS[Random.Range(0, DIRECTIONS.Length)];
-            transform.localRotation = Quaternion.Euler(new Vector3(0, -(_direction.x * 90 + _direction.y * 90), 0));
+            transform.localRotation =
+                Quaternion.LookRotation(new Vector3(_direction.x, 0, _direction.y));
             twin._direction = -_direction;
-            twin.transform.localRotation = Quaternion.Euler(new Vector3(0, (_direction.x * 90 + _direction.y * 90), 0));
+            twin.transform.localRotation =
+                Quaternion.LookRotation(new Vector3(_direction.y, 0, _direction.x));
         }
     }
 
