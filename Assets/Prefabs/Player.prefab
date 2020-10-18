@@ -156,17 +156,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 023d340270e41174caf6ed0816401e15,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 9.0765
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 023d340270e41174caf6ed0816401e15,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.031
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 023d340270e41174caf6ed0816401e15,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 7.0913
+      value: -3
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 023d340270e41174caf6ed0816401e15,
         type: 3}
@@ -211,17 +211,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 023d340270e41174caf6ed0816401e15,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.3135
+      value: 0.30141
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 023d340270e41174caf6ed0816401e15,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.3135
+      value: 0.30141
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 023d340270e41174caf6ed0816401e15,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.3135
+      value: 0.30141
       objectReference: {fileID: 0}
     - target: {fileID: -1255605710908113952, guid: 023d340270e41174caf6ed0816401e15,
         type: 3}
@@ -251,7 +251,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 023d340270e41174caf6ed0816401e15,
         type: 3}
       propertyPath: m_Name
-      value: Idle_3 (tap foot)
+      value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 023d340270e41174caf6ed0816401e15, type: 3}

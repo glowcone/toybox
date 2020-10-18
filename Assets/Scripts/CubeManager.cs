@@ -20,9 +20,14 @@ public class CubeManager : MonoBehaviour
     private Vector3[] ROTATION_AXIS = new[] {Vector3.forward, Vector3.forward, Vector3.forward, Vector3.forward, Vector3.right, Vector3.right};
     private int[] ROTATION_ANGLES = new[] {0, 90, 180, -90, 90, -90};
     private const int FACES = 6;
-    void Start()
+
+    private void Awake()
     {
         INSTANCE = this;
+    }
+
+    void Start()
+    {
         _rooms = new Room[FACES, rows, rows];
         var newpos = transform.position + new Vector3(1, -1, 1) * spacing * rows;
         for (var i = 0; i < FACES; i++)
@@ -41,6 +46,7 @@ public class CubeManager : MonoBehaviour
         }
 
         currRoom = _rooms[0, 0, 0];
+        currRoom.SpawnPlayer();
     }
 
     private void Update()
@@ -48,18 +54,6 @@ public class CubeManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Q))
         {
             ShiftCubes(0, 1);
-        }
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            ShiftCubes(0, -1);
-        }
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            ShiftCubes(1, 0);
-        }
-        if (Input.GetKeyDown(KeyCode.D))
-        {
-            ShiftCubes(-1, 0);
         }
     }
 

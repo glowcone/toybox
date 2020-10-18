@@ -1,5 +1,7 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using Cinemachine;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -13,13 +15,30 @@ public class PlayerController : MonoBehaviour
     // private float jumpHeight = 1.0f;
     // private float gravityValue = -9.81f;
 
+    public static PlayerController INSTANCE;
     public Animator anim;
+    private Camera _camera;
+
+    private void Awake()
+    {
+        INSTANCE = this;
+    }
 
     private void Start()
     {
+        _camera = Camera.main;
         // controller = gameObject.AddComponent<CharacterController>();
         // controller.skinWidth = 0.03f;
         // controller.height = 0.005f;
+        BulletController.OnFire += TurnPlayer;
+
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+    }
+
+    private void TurnPlayer()
+    {
+        gameObject.transform.eulerAngles = transform.up * _camera.transform.rotation.eulerAngles.y;
     }
 
     void Update()
@@ -34,13 +53,13 @@ public class PlayerController : MonoBehaviour
 
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
-
+        
         Vector3 move = new Vector3(horizontal, 0, vertical);
-        controller.Move(move * Time.deltaTime * playerSpeed);
-
+        
         if (move != Vector3.zero)
         {
-            gameObject.transform.forward = move;
+            TurnPlayer();
+            controller.Move((transform.right * horizontal + transform.forward * vertical) * Time.deltaTime * playerSpeed);
         }
 
         // JUMP
