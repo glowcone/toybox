@@ -1,6 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class CubeManager : MonoBehaviour
 {
@@ -8,6 +10,7 @@ public class CubeManager : MonoBehaviour
     [SerializeField] private float spacing;
     [SerializeField] private Room[] roomPrefabs;
     [SerializeField] private float[] roomProbability;
+    [SerializeField] private float animFrameSecs, animTotalSecs;
 
     public static CubeManager INSTANCE;
 
@@ -36,11 +39,54 @@ public class CubeManager : MonoBehaviour
                 }
             }
         }
-        
+
+        currRoom = _rooms[0, 0, 0];
     }
 
-    public void ShiftCubes(Vector2 direction)
+    private void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            ShiftCubes(0, 1);
+        }
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            ShiftCubes(0, -1);
+        }
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            ShiftCubes(1, 0);
+        }
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            ShiftCubes(-1, 0);
+        }
+    }
+
+    public void ShiftCubes(int x, int y)
+    {
+        var all = spacing * rows * 2;
+        var hit = Physics.OverlapBox(currRoom.transform.position,
+            new Vector3(Math.Abs(y) * all, all, Math.Abs(x) * all), currRoom.transform.rotation);
+        foreach (var box in hit)
+        {
+            if (box.GetComponent<Room>())
+            {
+                StartCoroutine(RotateOverTime(box.gameObject, transform.position, currRoom.transform.right * x + currRoom.transform.forward * y, 90, animTotalSecs));
+                
+                // box.gameObject.SetActive(false);
+            }
+        }
+    }
+
+    IEnumerator RotateOverTime(GameObject obj, Vector3 pos, Vector3 axis, float angle, float secs)
+    {
+        float currAngle = 0;
+        while (Mathf.Abs(currAngle) < Mathf.Abs(angle))
+        {
+            obj.transform.RotateAround(pos, axis, angle/(secs/animFrameSecs));
+            currAngle += angle/(secs/animFrameSecs);
+            yield return new WaitForSeconds(animFrameSecs);
+        }
     }
 }

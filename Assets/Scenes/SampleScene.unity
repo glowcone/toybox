@@ -156,6 +156,8 @@ MonoBehaviour:
   - {fileID: 5468702745776541071, guid: 1c544c7060f9c7240b31162ce5979b7a, type: 3}
   - {fileID: 8923924852504885580, guid: 7621f6e9ee0f86149a9340be93718b1f, type: 3}
   roomProbability: []
+  animFrameSecs: 0.05
+  animTotalSecs: 0.3
   currRoom: {fileID: 0}
 --- !u!4 &630049869
 Transform:
@@ -484,7 +486,7 @@ Light:
   m_RenderMode: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 55
   m_RenderingLayerMask: 1
   m_Lightmapping: 4
   m_LightShadowCasterMode: 0
