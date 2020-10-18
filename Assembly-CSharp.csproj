@@ -59,13 +59,18 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Free Assets\3DTOYS\rotatecamera.cs" />
+     <Compile Include="Assets\Scripts\Bullet.cs" />
      <Compile Include="Assets\Scripts\BulletController.cs" />
      <Compile Include="Assets\Scripts\CameraController.cs" />
      <Compile Include="Assets\Scripts\CubeManager.cs" />
      <Compile Include="Assets\Scripts\DirectionalButton.cs" />
      <Compile Include="Assets\Scripts\EnemyHealthBar.cs" />
      <Compile Include="Assets\Scripts\EnemyManager.cs" />
+     <Compile Include="Assets\Scripts\FadeOut.cs" />
+     <Compile Include="Assets\Scripts\GameManager.cs" />
+     <Compile Include="Assets\Scripts\GroovyBot.cs" />
      <Compile Include="Assets\Scripts\InputManager.cs" />
+     <Compile Include="Assets\Scripts\MainMenu.cs" />
      <Compile Include="Assets\Scripts\PlayerController.cs" />
      <Compile Include="Assets\Scripts\PlayerHealth.cs" />
      <Compile Include="Assets\Scripts\Room.cs" />
