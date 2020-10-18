@@ -29,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3862855413457249481}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: 0}
+  m_LocalPosition: {x: 1, y: 1, z: 1}
   m_LocalScale: {x: 1, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -107,8 +107,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 039fbc9553e0147fe9f299a5ad947fc4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gun: {fileID: 8019597325458439414, guid: 69e1ef792e8fa42d685cb5b378fb0435, type: 3}
-  bullet: {fileID: 3319405054186319643, guid: a3f7e152e284e442d8668f04551eb179, type: 3}
 --- !u!114 &-4523470545908155547
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -121,5 +119,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5adc85f5831dc46c2950611c2b173c4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 0}
+  projectile: {fileID: 769419364909171491, guid: a3f7e152e284e442d8668f04551eb179,
+    type: 3}
   Spawnpoint: {fileID: 0}
