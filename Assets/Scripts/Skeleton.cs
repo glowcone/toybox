@@ -11,6 +11,7 @@ public class Skeleton : MonoBehaviour
     [SerializeField] private Animator anim;
     Vector3 playerPos;
     [SerializeField] GameObject canvas;
+    [SerializeField] GameObject hurtSound;
 
     bool died = false;
 
@@ -77,6 +78,7 @@ public class Skeleton : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Bullet"))
         {
+            hurtSound.GetComponent<AudioSource>().Play();
             health--;
             StartCoroutine(DamageAnimation());
             // canvas.SetActive(true);

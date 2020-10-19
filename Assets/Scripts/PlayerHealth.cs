@@ -10,6 +10,7 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] private Slider healthBar;
     [SerializeField] private Animator anim;
     [SerializeField] private PlayerController pc;
+    GameObject hurtSound, playerDieSound;
 
     bool died = false;
 
@@ -21,6 +22,8 @@ public class PlayerHealth : MonoBehaviour
         health = MAXHEALTH;
         healthBar.maxValue = MAXHEALTH;
         gm = GameObject.Find("GameManager").GetComponent<GameManager>();
+        hurtSound = GameObject.Find("hurt sound");
+        playerDieSound = GameObject.Find("player die sound");
     }
 
     // Update is called once per frame
@@ -36,6 +39,7 @@ public class PlayerHealth : MonoBehaviour
         {
             died = true;
             //Debug.Log("game over");
+            StartCoroutine(dieSound());
             anim.SetTrigger("Player Dead");
             pc.controller.enabled = false;
             gm.Lose();
@@ -56,8 +60,15 @@ public class PlayerHealth : MonoBehaviour
 
     void TakeDamage()
     {
-        Debug.Log("taking damage");
+        hurtSound.GetComponent<AudioSource>().Play();
+        //Debug.Log("taking damage");
         health--;
         anim.SetBool("Get Hurt", true);
+    }
+
+    IEnumerator dieSound()
+    {
+        yield return new WaitForSeconds(0.3f);
+        playerDieSound.GetComponent<AudioSource>().Play();
     }
 }

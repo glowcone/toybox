@@ -21,6 +21,8 @@ public class BulletController : MonoBehaviour {
     {
         if(Input.GetButtonDown("Fire1"))
         {
+            GetComponent<AudioSource>().Play();
+            StopCoroutine(ShootAnimation());
             StartCoroutine(ShootAnimation());
             Rigidbody clone;
             OnFire?.Invoke();
@@ -31,7 +33,8 @@ public class BulletController : MonoBehaviour {
 
     IEnumerator ShootAnimation()
     {
-        anim.SetBool("Shoot", true);
+        if (!anim.GetBool("Shoot"))
+            anim.SetBool("Shoot", true);
         gun.SetActive(true);
         yield return new WaitForSeconds(1.0f);
         anim.SetBool("Shoot", false);
